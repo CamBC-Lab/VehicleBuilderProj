@@ -308,7 +308,6 @@ class Cli {
           this.performActions();
         }else{
           truck.tow(answers.vehicleToTow);
-          console.log('Towing');
           this.performActions();
         }
       });
@@ -405,6 +404,8 @@ class Cli {
               if (this.vehicles[i] instanceof Truck) {
                 this.findVehicleToTow(this.vehicles[i] as Truck);
                 return;
+              }else{
+                console.log('Selected vehicle is not a truck cannot tow');
               }
             }
           }
@@ -415,6 +416,8 @@ class Cli {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               if (this.vehicles[i] instanceof Motorbike) {
                 (this.vehicles[i] as Motorbike).wheelie();
+              }else{
+                console.log('Selected vehicle is not a motorbike cannot wheelie');
               }
             }
           }
